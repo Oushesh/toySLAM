@@ -12,3 +12,6 @@ make -j8
 cd ..
 python setup.py install
 echo 'Done!'
+
+
+#Instead use: 
