@@ -19,8 +19,11 @@
       * pangolin for 3-D Display, python wrapper
         around pangolin
       * g2opy for optimization
-      
+
 ##### Walkthrough
       *
       *
       *
+
+###### CI/CD
+       * Use github CI/CD pipline --> .yml
