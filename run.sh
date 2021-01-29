@@ -14,4 +14,5 @@ python setup.py install
 echo 'Done!'
 
 
-#Instead use: 
+#TODO: write an installation blog of using cmake & cmake -G with
+#MinGW MakeFiles and how to add the path on windows. Super important
