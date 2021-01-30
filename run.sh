@@ -7,9 +7,14 @@ echo 'Starting installation on Windows'
 cd pangolin
 mkdir build
 cd build
-cmake ..
-make -j8
+cmake -G "MinGW Makefiles"..
+
+#Custom design CMAKe
+MinGW32-make -j8
+#make -j8
 cd ..
+
+#TODO: Fix the start by testing glew
 python setup.py install
 echo 'Done!'
 
@@ -17,4 +22,7 @@ echo 'Done!'
 #TODO: write an installation blog of using cmake & cmake -G with
 #MinGW MakeFiles and how to add the path on windows. Super important
 
-#TODO: update the run.sh for 
+#TODO: update the run.sh for
+
+
+#TODO: install freeglut

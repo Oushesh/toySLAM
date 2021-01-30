@@ -30,6 +30,5 @@
 
 
 ###### TODO
-       * Install Glew
-       * Rerun MinGW32-make -j8 on windows
+       * Check error libjpeg 
        * Complete installation of pangolin
