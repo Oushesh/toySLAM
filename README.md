@@ -27,3 +27,9 @@
 
 ###### CI/CD
        * Use github CI/CD pipline --> .yml
+
+
+###### TODO
+       * Install Glew
+       * Rerun MinGW32-make -j8 on windows
+       * Complete installation of pangolin
