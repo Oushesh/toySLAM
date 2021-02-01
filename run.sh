@@ -24,5 +24,4 @@ echo 'Done!'
 
 #TODO: update the run.sh for
 
-
-#TODO: install freeglut
+#TODO: Nothing to do here 
