@@ -11,8 +11,10 @@
 
 
 ##### Directory Explanation
+      * The main module: slam.py where all the other modules are called.
       * data -- storing the test videos
       * constants.py -- store the constants
+      *
 
 
 ##### Libraries Used:
@@ -38,3 +40,6 @@
        * Read on multiprocessing in Python: https://www.journaldev.com/15631/python-multiprocessing-example
        * TODO: "MOST IMPORTANT Try OpenVSLAM on my Ubuntu and test the installation of Pangolin"
        * TODO: Read on Flame "https://ps.is.tuebingen.mpg.de/uploads_file/attachment/attachment/400/paper.pdf"
+       * TOREAD: "https://skarredghost.com/2021/02/01/facebook-quest-2-sales-valve-bci/?fbclid=IwAR1qdriND7Lh3sbQtWsQ_tGz_LmfsHNsH0QWmnLbP_yqdJicXMMt-ZQZwO4"
+       * TODO: https://www.youtube.com/watch?v=4qBe_Vvzq_c How to run OpenVSLAM on iphone
+       *

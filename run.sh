@@ -24,4 +24,7 @@ echo 'Done!'
 
 #TODO: update the run.sh for
 
-#TODO: Nothing to do here 
+#TODO: optimimze_g2o how to install this: install Qt5 & Eigen on windows
+      ### Steps are here: How to build the interface for our product ?
+      ### Tesla uses Qt for interface.
+      ### Install and work with Qt5 for Windows, https://www.qt.io/download-thank-you

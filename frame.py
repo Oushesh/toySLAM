@@ -14,6 +14,7 @@ from constants import *
 from skimage.measure import ransac
 from helpers import *
 
+
 '''
 keypoints: kps
 descriptors: des
@@ -51,11 +52,12 @@ def match_frames(f1,f2):
 
     # Lowe's ratio test
     ret = []
-    idx1, idx2 = [],[]
+    idx1, idx2 = [], []
     # set to find duplicates
     idx1s, idx2s = set(), set()
 
-    for m.n in matches:
+
+    for m,n in matches:
         if m.distance < 0.75*n.distance:
             p1 = f1.kps[m.queryIdx]
             p2 = f2.kps[m.trainIdx]
@@ -65,7 +67,6 @@ def match_frames(f1,f2):
             if m.distance < 32:
                 #keep around indices
                 #TODO:  Check matchiing keypoints complexity
-
                 if m.queryIdx not in idx1s and m.trainIdx not in idx2s:
                     '''
                     add to the list idx1, idx2 and also to the set datastructure
@@ -82,4 +83,54 @@ def match_frames(f1,f2):
     assert(len(set(idx1)) == len(idx1))
     assert(len(set(idx2))==len(idx2))
 
+    #TODO: make sure we have enough points
+    assert len(ret)>=8
+    ret = np.array(ret)
+    #Convert the list to np arrays
+    idx1 = np.array(idx1)
+    idx2 = np.array(idx2)
+
     #Perform model ransac
+    ### min_samples 8 for the essential matrix
+    model, inliers = ransac((ret[:, 0], ret[:, 1])), EssentialMatrixTransform, min_samples=8,residual_threshold=RANSAC_RESIDUAL_THRES,max_trials=RANSAC_MAX_TRIALS)
+    print("Matches:  %d -> %d -> %d -> %d" % (len(f1.des), len(matches), len(inliers), sum(inliers)))
+
+    ####TO CHECK: This will only work if we have
+    return idx1[inliers], idx2[inliers], fundamentalToRt(model.params)
+
+####A Class Frame
+'''
+Frame:
+img: read in img which is actually the Frame
+pose: 3D pose,
+mapp: updated drawing
+tid: Frameid,
+Vets: vertices (Keypoints)???
+K: calibration matrix.
+'''
+class Frame(object):
+    def __init__(self,mapp,img,K,pose=np.eye(4),tid=None,verts=None):
+        self.K = np.array(K)
+        #in case the pose is given we convert to numpy array
+        self.pose = np.array(pose)
+
+        if img is not None:
+            self.h, self.w = img.shape[0:2]
+            if verts is None:
+                '''
+                if there is no extracted keypoints,
+                descriptors.
+                '''
+                self.kpus, self.des = extractFeatures(img)
+            else:
+                assert len(verts) < 256
+                self.kpus, self.des = verts, np.array(list(range(len(verts)))*32, np.uint8).reshape(32, len(verts)).T
+            self.pts = [None]*len(self.kpus)
+        else:
+            #TO CHECK the dimension or size 
+            self.h, self.w = 0,0
+            self.kpus, self.des, self.pts = None, None, None
+
+        self.id =
+
+        ##TOCHECK Back how this works
