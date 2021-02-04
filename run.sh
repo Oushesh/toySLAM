@@ -28,3 +28,12 @@ echo 'Done!'
       ### Steps are here: How to build the interface for our product ?
       ### Tesla uses Qt for interface.
       ### Install and work with Qt5 for Windows, https://www.qt.io/download-thank-you
+
+#TODO TOREAD: installation of ExPose paper and how to make the things better.
+       #https://ps.is.tuebingen.mpg.de/uploads_file/attachment/attachment/620/0983.pdf
+       #https://ps.is.tuebingen.mpg.de/uploads_file/attachment/attachment/620/0983.pdf
+       #https://openaccess.thecvf.com/content_CVPR_2020/papers/Xu_GHUM__GHUML_Generative_3D_Human_Shape_and_Articulated_Pose_CVPR_2020_paper.pdf
+
+
+#TODO: Build an iOS App to render the face based on FLAME-fitting algorithm:
+        #https://github.com/Rubikplayer/flame-fitting
