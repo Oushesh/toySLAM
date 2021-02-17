@@ -16,8 +16,7 @@ from  optimimze_g2o import optimize
 LOCAL_WINDOW = 20
 
 class Point():
-    def
-
+    def 
 
 
 '''

@@ -7,7 +7,10 @@ import cv2
 from collections import deque
 
 class Transformation:
-    def warp(src,T):
+    def __init__(self,src,T):
+        self.src = src
+        self.T   = T
+    def warp(self,src,T):
         '''
         src: source image
         T  : Transformation
@@ -25,38 +28,55 @@ class Transformation:
         h   = src.size[1]
 
         #Build a list/set of (x,y)s
-        coord = deque()
-        transformed = deque()
-
+        pairs = deque()
         #For multiplication to occur: [x,y,1]
         for x in range(w):
             for y in range(h):
-                coord.deque([x,y,1])
                 des = np.linalg.dot([x,y,1],T)
-                transformed.append(des)
-
+                pairs.append([x,y,1],[des])
                 #At this moment we have the corresponding (x,y)-->(x_trans,y_trans)
 
-        #We have here a list of tuples: [(x1,y1),(x2,y2),(x3,y3),....(xn,yn)]
-        #query the colours from the
+        '''
+        Build a warped image plane
+        1. Query new max-width
+        2. Query new max-height
+        3. initialise with 0s
+        4. Fill the right colours:
+            corresponding element.
+        '''
+        warped_w = max([i[0] for i in transformed])
+        warped_h = max([i[1] for i in transformed])
 
+        '''
+        init 0s
+        '''
 
+        '''
+        a = np.array((1,2,3))
+        b = np.array((2,3,4))
+        np.dstack((a,b))
+        array([[[1, 2],
+            [2, 3],
+            [3, 4]]])
+        '''
 
-        #Think how you do in Mathematics:
-        (X*T = transformed)
-        for i in range(w):
-            for j in range(h):
-                warped_img
-
-        #To represent the output we take the
-
-
-        warped_img = np.linalg.dot(src,T)
-
-        #To write the warping I would need
+        warped_img = [[0 for x in warped_w] for y in warped_h]
+        for [x,y,1],[x_trans,y_trans,1] in pairs:
+            #Query the pixel value
+            pix = src[x][y]
+            #PUt this into the new warped_img
+            pix = warped_img[x_trans][y_trans]
+        #At this moment we have updated the pixel values into the
+        #new image frame
         return warped_img
 
+'''
+Conceptionally, the code is really good.
+'''
+
 if __name__ == "__main__":
-
-
-#TODO: complete this code
+    #All data are to be compliant to numpy array category
+    #HOmography Transformation Matrix, T
+    dir = "*.jpg"
+    src = np.array(cv2.imread(dir))
+    Homography = np.array()
