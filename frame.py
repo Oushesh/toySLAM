@@ -26,11 +26,11 @@ def extractFeatures(img):
     pts  = cv2.goodFeaturesToTrack(np.mean(img, axis=2).astype(np.uint8), 3000, qualityLevel=0.01, minDistance=7)
 
     # extraction
-     kps = [cv2.KeyPoint(x=f[0][0], y=f[0][1], _size=20) for f in pts]
-     kps, des = orb.compute(img,kps)
+    kps = [cv2.KeyPoint(x=f[0][0], y=f[0][1], _size=20) for f in pts]
+    kps, des = orb.compute(img,kps)
 
-     #Kps is a list of (x,y) --> kp.pt is from openCV
-     return np.array([kp.pt[0],kp.pt[1]] for kp in kps), des
+    #Kps is a list of (x,y) --> kp.pt is from openCV
+    return np.array([kp.pt[0],kp.pt[1]] for kp in kps), des
 
 '''
 Match the Frames based on distance between
@@ -92,7 +92,7 @@ def match_frames(f1,f2):
 
     #Perform model ransac
     ### min_samples 8 for the essential matrix
-    model, inliers = ransac((ret[:, 0], ret[:, 1])), EssentialMatrixTransform, min_samples=8,residual_threshold=RANSAC_RESIDUAL_THRES,max_trials=RANSAC_MAX_TRIALS)
+    model, inliers = ransac((ret[:, 0], ret[:, 1]), EssentialMatrixTransform, min_samples=8,residual_threshold=RANSAC_RESIDUAL_THRES,max_trials=RANSAC_MAX_TRIALS)
     print("Matches:  %d -> %d -> %d -> %d" % (len(f1.des), len(matches), len(inliers), sum(inliers)))
 
     ####TO CHECK: This will only work if we have

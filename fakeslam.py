@@ -4,11 +4,12 @@ import os
 import sys
 import time
 
-sys.path.append("lib/macosx")
-sys.path.append("lib/linux")
+#sys.path.append("lib/macosx")
+#sys.path.append("lib/linux")
 
 import numpy as np
-from slam import SLAM
+
+import SLAM
 from renderer import Renderer
 from display import Display2D, Display3D
 

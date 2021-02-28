@@ -1,3 +1,4 @@
-pygame==2.0.1
-pybind
-PyOpenGL PyOpenGL_accelerate
+#pygame==2.0.1
+pygame
+PyOpenGL
+pybind11
