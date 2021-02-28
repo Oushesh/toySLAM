@@ -1,8 +1,3 @@
-'''
-Author: Oushesh Haradhun
-Purpose: Test slam display, renderer
-'''
-
 #fakeslam.py
 #!/usr/bin/env python3
 import os
