@@ -13,7 +13,7 @@ sys.path.append("lib/macosx")
 sys.path.append("lib/linux")
 
 import numpy as np
-from slam import SLAM
+from ../slam import SLAM
 from renderer import Renderer
 from display import Display2D, Display3D
 
