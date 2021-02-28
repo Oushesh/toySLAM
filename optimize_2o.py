@@ -13,7 +13,7 @@ reporjection_error = frame.pose - inverse(keypoints): inverse(keypoints)--> coor
 
 '''
 
-def optimize(frames, points, local_window, fix_points,verbose=false,rounds=50):
+def optimize(frames, points, local_window, fix_points,verbose=False,rounds=50):
     #TODO: to check why we need this
     #if local_window is None:
     if local_window is None:

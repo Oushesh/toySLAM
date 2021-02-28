@@ -2,3 +2,6 @@
 pygame
 PyOpenGL
 pybind11
+skimage
+scikit-image
+renderer

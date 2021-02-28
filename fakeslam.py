@@ -1,22 +1,20 @@
-#fakeslam.py
 #!/usr/bin/env python3
 import os
 import sys
 import time
 
-#sys.path.append("lib/macosx")
-#sys.path.append("lib/linux")
+sys.path.append("lib/macosx")
+sys.path.append("lib/linux")
 
 import numpy as np
-
-import SLAM
+from SLAM import *
 from renderer import Renderer
 from display import Display2D, Display3D
 
 if __name__ == "__main__":
   W,H = 640,480
   F = H  # with 45 degree FoV
-
+  
   K = np.array([[F,0,W//2],[0,F,H//2],[0,0,1]])
   Kinv = np.linalg.inv(K)
 
