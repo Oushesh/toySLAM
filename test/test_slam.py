@@ -14,6 +14,7 @@ import numpy as np
 #sys.path.append("lib/linux")
 sys.path.insert(0,'../slam.py')
 
+import slam
 from slam import SLAM
 from renderer import Renderer
 from display import Display2D, Display3D
