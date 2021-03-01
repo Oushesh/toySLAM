@@ -12,13 +12,14 @@ def extractFeatures(img):
   orb = cv2.ORB_create()
   # detection
   pts = cv2.goodFeaturesToTrack(np.mean(img, axis=2).astype(np.uint8), 3000, qualityLevel=0.01, minDistance=7)
+  
+  if not pts==None:
+      # extraction
+      kps = [cv2.KeyPoint(x=f[0][0], y=f[0][1], _size=20) for f in pts]
+      kps, des = orb.compute(img, kps)
 
-  # extraction
-  kps = [cv2.KeyPoint(x=f[0][0], y=f[0][1], _size=20) for f in pts]
-  kps, des = orb.compute(img, kps)
-
-  # return pts and des
-  return np.array([(kp.pt[0], kp.pt[1]) for kp in kps]), des
+      # return pts and des
+      return np.array([(kp.pt[0], kp.pt[1]) for kp in kps]), des
 
 def match_frames(f1, f2):
   bf = cv2.BFMatcher(cv2.NORM_HAMMING)
@@ -49,7 +50,17 @@ def match_frames(f1, f2):
   assert(len(set(idx1)) == len(idx1))
   assert(len(set(idx2)) == len(idx2))
 
+  
+  #TODO: Handle the case when ret is less.
+  #Less keypoints found
+  
   assert len(ret) >= 8
+
+  #skip frame if less keypoints found
+  #if not len(ret)>=8:
+  #  print ("Too few keypoints: less than 8")
+  
+
   ret = np.array(ret)
   idx1 = np.array(idx1)
   idx2 = np.array(idx2)
@@ -127,3 +138,6 @@ class Frame(object):
     if not hasattr(self, '_kd'):
       self._kd = cKDTree(self.kpus)
     return self._kd
+
+
+#TODO: Handle the error when there is not enough points

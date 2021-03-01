@@ -143,7 +143,7 @@ class SLAM(object):
       pt.add_observation(f1, idx1[i])
       new_pts_count += 1
 
-    #//print("Adding:   %d new points, %d search by projection" % (new_pts_count, sbp_pts_count))
+    print("Adding:   %d new points, %d search by projection" % (new_pts_count, sbp_pts_count))
 
     # optimize the map
     if frame.id >= 4 and frame.id%5 == 0:
@@ -151,9 +151,9 @@ class SLAM(object):
         if err is not None:
           print("Optimize: %f units of error" % err)
 
-    #//print("Map:      %d points, %d frames" % (len(self.mapp.points), len(self.mapp.frames)))
-    #//print("Time:     %.2f ms" % ((time.time()-start_time)*1000.0))
-    #//print(np.linalg.inv(f1.pose))
+    print("Map:      %d points, %d frames" % (len(self.mapp.points), len(self.mapp.frames)))
+    print("Time:     %.2f ms" % ((time.time()-start_time)*1000.0))
+    print(np.linalg.inv(f1.pose))
 
 
 if __name__ == "__main__":
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     F *= downscale
     H = int(H * downscale)
     W = 1024
-  #//print("using camera %dx%d with F %f" % (W,H,F))
+  print("using camera %dx%d with F %f" % (W,H,F))
 
   # camera intrinsics
   K = np.array([[F,0,W//2],[0,F,H//2],[0,0,1]])
@@ -214,6 +214,9 @@ if __name__ == "__main__":
 
     #//print("\n*** frame %d/%d ***" % (i, CNT))
     if ret == True:
+      #Error Handling
+      #if gt_pose is None:
+      #  continue
       slam.process_frame(frame, None if gt_pose is None else np.linalg.inv(gt_pose[i]))
     else:
       break
@@ -227,3 +230,6 @@ if __name__ == "__main__":
       disp2d.paint(img)
 
     i += 1
+
+
+#TODO: skip frames if there are not enough points. Super important
