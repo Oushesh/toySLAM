@@ -1,5 +1,7 @@
 ### ToySLAM inspired by George Hotz
       I am implementing this for my company project -- see_through_future
+      Refactor toyslam for further development
+      
 
 ##### Steps for the SLAM
       1. Input Image Sequence.
