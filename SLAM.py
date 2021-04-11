@@ -158,11 +158,11 @@ class SLAM(object):
 
 if __name__ == "__main__":
   if len(sys.argv) < 2:
-    #//print("%s <video.mp4>" % sys.argv[0])
+    print("%s <video.mp4>" % sys.argv[0])
     exit(-1)
 
   disp2d, disp3d = None, None
-    
+
   if os.getenv("HEADLESS") is None:
     disp3d = Display3D()
 
@@ -212,7 +212,7 @@ if __name__ == "__main__":
     ret, frame = cap.read()
     frame = cv2.resize(frame, (W, H))
 
-    #//print("\n*** frame %d/%d ***" % (i, CNT))
+    print("\n*** frame %d/%d ***" % (i, CNT))
     if ret == True:
       #Error Handling
       #if gt_pose is None:
@@ -228,8 +228,6 @@ if __name__ == "__main__":
     if disp2d is not None:
       img = slam.mapp.frames[-1].annotate(frame)
       disp2d.paint(img)
-
     i += 1
-
 
 #TODO: skip frames if there are not enough points. Super important
