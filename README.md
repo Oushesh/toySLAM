@@ -1,13 +1,17 @@
 ### ToySLAM inspired by George Hotz
       I am implementing this for my company project -- see_through_future
       Refactor toyslam for further development
-      
+
+## How to RUN
+   * python fakeslam.py
+   * python SLAM.py <video.mp4>
+     * e.g. python SLAM.py videos/*.mp4
 
 ##### Steps for the SLAM
       1. Input Image Sequence.
       2. Feature Detector (ORB, BFF Matcher)
       3. Matching Criteria (Error Definition)--> Distance Measurement (hamming distance, mahalanobis)
-      4. Error Optimiser, (Bundle Adjustment)
+      4. Error Optimizer, (Bundle Adjustment)
       5. Loop Closure.
       6.
 
@@ -16,7 +20,6 @@
       * The main module: slam.py where all the other modules are called.
       * data -- storing the test videos
       * constants.py -- store the constants
-      *
 
 
 ##### Libraries Used:
@@ -26,9 +29,6 @@
       * g2opy for optimization
 
 ##### Walkthrough
-      *
-      *
-      *
 
 ###### CI/CD
        * Use github CI/CD pipline --> .yml

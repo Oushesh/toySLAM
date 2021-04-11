@@ -12,8 +12,8 @@ def extractFeatures(img):
   orb = cv2.ORB_create()
   # detection
   pts = cv2.goodFeaturesToTrack(np.mean(img, axis=2).astype(np.uint8), 3000, qualityLevel=0.01, minDistance=7)
-  
-  if not pts==None:
+  #print ('length of points',len(pts))
+  if len(pts)>0:
       # extraction
       kps = [cv2.KeyPoint(x=f[0][0], y=f[0][1], _size=20) for f in pts]
       kps, des = orb.compute(img, kps)
@@ -50,16 +50,16 @@ def match_frames(f1, f2):
   assert(len(set(idx1)) == len(idx1))
   assert(len(set(idx2)) == len(idx2))
 
-  
+
   #TODO: Handle the case when ret is less.
   #Less keypoints found
-  
+
   assert len(ret) >= 8
 
   #skip frame if less keypoints found
   #if not len(ret)>=8:
   #  print ("Too few keypoints: less than 8")
-  
+
 
   ret = np.array(ret)
   idx1 = np.array(idx1)
