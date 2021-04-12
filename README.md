@@ -28,8 +28,10 @@
 
 ## Walkthrough
 
+##
 ## CI/CD
        * Use github CI/CD pipline --> .yml
+       * TO CHECK how to do this.
 
 ## Results
   * ![Camera View Update](documentation/camera001.png)
@@ -42,7 +44,20 @@
   * ![Camera View Update](documentation/flow001.png)
   * ![Camera View Update](documentation/flow002.png)
   * ![Camera View Update](documentation/flow003.png)
-  * ![Camera View Update](documentation/flow003.png)
+  * ![Camera View Update](documentation/flow004.png)
+
+## Test on SLAM
+   * ![Good SLAM Video](documentation/good_SLAM/good_SLAM_cam001.png)
+   * ![Good SLAM Video](documentation/good_SLAM/good_SLAM_cam002.png)
+   * ![Good SLAM Video](documentation/good_SLAM/good_SLAM_cam003.png)
+   * ![Good SLAM Video](documentation/good_SLAM/good_SLAM_cam004.png)
+   * ![Good SLAM Video](documentation/good_SLAM/goodSLAM_vid001.png)
+
+##
+## Read on GPU-Acceleration
+   * how to accelerate the pipeline and port it to GPU?
+   * how much speed do we gain here?? need to quantify it properly
+
 
 ## TODO
        * Check error "__lib" at MinGW32-make install
