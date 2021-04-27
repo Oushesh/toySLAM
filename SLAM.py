@@ -133,7 +133,7 @@ class SLAM(object):
       if pp1 > 2 or pp2 > 2:
         continue
 
-      # add the point
+      #add the point
       try:
         color = img[int(round(f1.kpus[idx1[i],1])), int(round(f1.kpus[idx1[i],0]))]
       except IndexError:
@@ -154,7 +154,6 @@ class SLAM(object):
     print("Map:      %d points, %d frames" % (len(self.mapp.points), len(self.mapp.frames)))
     print("Time:     %.2f ms" % ((time.time()-start_time)*1000.0))
     print(np.linalg.inv(f1.pose))
-
 
 if __name__ == "__main__":
   if len(sys.argv) < 2:
@@ -225,9 +224,12 @@ if __name__ == "__main__":
     if disp3d is not None:
       disp3d.paint(slam.mapp)
 
+
+    '''
     if disp2d is not None:
       img = slam.mapp.frames[-1].annotate(frame)
       disp2d.paint(img)
+    '''
     i += 1
 
-#TODO: skip frames if there are not enough points. Super important
+#TODO: Replace parts of the code with CUDA accelerated OpenCV.
