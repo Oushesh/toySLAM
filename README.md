@@ -6,14 +6,14 @@
    * python fakeslam.py
    * python SLAM.py <video.mp4>
      * e.g. python SLAM.py videos/*.mp4
+     * 
 
 ## Steps for the SLAM
       1. Input Image Sequence.
       2. Feature Detector (ORB, BFF Matcher)
       3. Matching Criteria (Error Definition)--> Distance Measurement (hamming distance, mahalanobis)
       4. Error Optimizer, (Bundle Adjustment)
-      5. Loop Closure.
-      6.
+      5. Loop Closure (to be implemented)
 
 ## Directory Explanation
       * The main module: slam.py where all the other modules are called.
@@ -26,9 +26,6 @@
         around pangolin
       * g2opy for optimization
 
-## Walkthrough
-
-##
 ## CI/CD
        * Use github CI/CD pipline --> .yml
        * TO CHECK how to do this.
