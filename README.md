@@ -6,7 +6,6 @@
    * python fakeslam.py
    * python SLAM.py <video.mp4>
      * e.g. python SLAM.py videos/*.mp4
-     * 
 
 ## Steps for the SLAM
       1. Input Image Sequence.
@@ -21,10 +20,10 @@
       * constants.py -- store the constants
 
 ## Libraries Used:
-      * cv2 for feature extraction
-      * pangolin for 3-D Display, python wrapper
+      * cv2 for feature extraction --> update to GPU
+      * pangolin for 3-D Display, python wrapper --> update to GPU
         around pangolin
-      * g2opy for optimization
+      * g2opy for optimization --> update to GPU
 
 ## CI/CD
        * Use github CI/CD pipline --> .yml
