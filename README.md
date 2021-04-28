@@ -14,6 +14,9 @@
       4. Error Optimizer, (Bundle Adjustment)
       5. Loop Closure (to be implemented)
 
+## Video Demo 
+   ![(images/slam_test.mp4)]
+
 ## Directory Explanation
       * The main module: slam.py where all the other modules are called.
       * data -- storing the test videos
