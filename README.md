@@ -15,7 +15,8 @@
       5. Loop Closure (to be implemented)
 
 ## Video Demo 
-   ![(images/slam_test.mp4)]
+   ![Video_Demo](images(slam_test.mp4)
+ 
 
 ## Directory Explanation
       * The main module: slam.py where all the other modules are called.
